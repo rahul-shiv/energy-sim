@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Energy Simulation Home</title>
+</head>
+<body>
+    <h1>Energy Simulation</h1>
+    <form action="/start_simulation" method="post">
+        <label for="namespace">Namespace to Monitor:</label>
+        <input type="text" id="namespace" name="namespace" required>
+        <br>
+        <label for="start_date">Start Date:</label>
+        <input type="date" id="start_date" name="start_date" required>
+        <br>
+        <label for="stored_energy_kwh">Stored Energy (kWh):</label>
+        <input type="number" id="stored_energy_kwh" name="stored_energy_kwh" value="8.4" step="0.1" required>
+        <br>
+        <label for="storage_capacity_kwh">Storage Capacity (kWh):</label>
+        <input type="number" id="storage_capacity_kwh" name="storage_capacity_kwh" value="16.8" step="0.1" required>
+        <br>
+        <label for="wind_farm_production_capacity_kwh">Wind Farm Production Capacity (kWh per day):</label>
+        <input type="number" id="wind_farm_production_capacity_kwh" name="wind_farm_production_capacity_kwh" value="25.2" step="0.1" required>
+        <br>
+        <input type="submit" value="Start/Restart Simulation">
+    </form>
+</body>
+</html>
+
