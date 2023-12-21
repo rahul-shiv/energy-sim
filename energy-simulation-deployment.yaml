@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: energy-simulation-service
+spec:
+  selector:
+    app: energy-simulation
+  ports:
+    - protocol: TCP
+      port: 5001
+      targetPort: 5001
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: energy-simulation-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: energy-simulation
+  template:
+    metadata:
+      labels:
+        app: energy-simulation
+    spec:
+      containers:
+      - name: energy-simulation-container
+        image: rahulshiv/energy-simulation:latest
+        ports:
+        - containerPort: 5001
+
