@@ -80,7 +80,6 @@ def get_current_energy_utilization(prometheus_client):
             previous_energy = previous_total_energy.get(pod_name, 0.0)
             energy_difference[pod_name] = current_energy - previous_energy
             previous_total_energy[pod_name] = current_energy
-        #print(energy_difference)
         return energy_difference
 
     except Exception as e:
@@ -149,7 +148,7 @@ def simulate_energy_availability(prometheus_client, power_factors, update_interv
                   f"PF {pf}, "
                   f"Current Utilization = {current_utilization} J, "
                   f"Generated Energy = {generated_energy_joules/3600000} kWh, "
-                  f"Net Energy = {net_energy_joules} J, "
+                  f"Net Energy = {net_energy_joules/3600000} kWh, "
                   f"Stored Energy = {stored_energy_joules/3600000} kWh")
 
             # Update power factor index every hour
